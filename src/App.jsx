@@ -1,8 +1,19 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom"
 import Layout from "./Layout"
 import Home from "./pages/Home"
+<<<<<<< HEAD
 import IndiaNepalallPackages from "./pages/IndiaNepalallPackages"
 import NepalAllPackages from "./nepalpackages/NepalAllPackages"
+=======
+import AboutPage from "./pages/About"
+import AyodhyaPackages from "./pages/AyodhyaPackages"
+import KathmanduTour2N3D from "./pages/KathmanduTour2N3D"
+import KashiTourPackages from "./pages/KashiTourPackages"
+import BhutanTourPackages from "./pages/BhutanTourPackages"
+import PrayagrajTourPackages from "./pages/PrayagrajTourPackages"
+import BodhGayaTourPackages from "./pages/BodhGayaTourPackages"
+import GorakhpurTourPackages from "./pages/GorakhpurTourPackages"
+>>>>>>> 9e0703f9d65a01b3c46912c8e726abab6fd0dbd8
 
 const App=()=>{
   return(
@@ -13,8 +24,19 @@ const App=()=>{
 
       <Route index element={<Home/>}/>
       <Route path="home" element={<Home/>}/>
+<<<<<<< HEAD
       <Route path="indianepalallpackages" element={<IndiaNepalallPackages/>}/>
       <Route path="nepalallpackages" element={<NepalAllPackages/>}/>
+=======
+      <Route path="About" element={<AboutPage/>}/>
+      <Route path="AyodhyaPackages" element={<AyodhyaPackages/>}/>
+      <Route path="KathmanduTour2N3D" element={<KathmanduTour2N3D/>}/>
+      <Route path="KashiTourPackages" element={<KashiTourPackages/>}/>
+      <Route  path="BhutanTourPackages" element={<BhutanTourPackages/>}/>
+      <Route path="PrayagrajTourPackages" element={<PrayagrajTourPackages/>}/>
+      <Route path="BodhGayaTourPackages" element={<BodhGayaTourPackages/>}/>
+      <Route path="GorakhpurTourPackages" element={<GorakhpurTourPackages/>}/>
+>>>>>>> 9e0703f9d65a01b3c46912c8e726abab6fd0dbd8
 
 
 
