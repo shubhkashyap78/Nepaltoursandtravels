@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { 
   MapPin, Calendar, Star, Share2, Heart, Download, 
@@ -7,13 +5,14 @@ import {
   Camera, Bus, Award, Users 
 } from 'lucide-react';
  import kathmandu from "../images/kathmandu.jpg"
+
 // --- PURE NEPAL MOCK DATA (SOTC Style Design) ---
 const packageData = {
   title: "Majestic Nepal: Kathmandu",
   rating: 4.5,
   reviews: 1240,
   duration: "7 Nights 8 Days",
-  route: "Kathmandu (2N) → Chitwan (2N) → Pokhara (2N) → Nagarkot (1N)",
+  route: "Kathmandu (2N) → Bhaktapur (1N) → Patan (1N) → Nagarkot (1N)",
   originalPrice: 52000,
   basePriceAdult: 45500,
   basePriceChildWithBed: 35000,
@@ -51,7 +50,47 @@ const packageData = {
     "Witness the spectacular sunrise over the Himalayas from Sarangkot.",
     "VIP Darshan at Pashupatinath Temple in Kathmandu.",
     "Read More"
-  ]
+  ],
+  transfer: [
+    "Airport transfers in private AC vehicle.",
+    "Inter-city transfers (Kathmandu - Chitwan - Pokhara) by comfortable tourist bus.",
+    "Local sightseeing transportation as per the itinerary.",
+    "All toll taxes, parking fees, and driver allowances are included."
+  ],
+  sightseeing: [
+    "Kathmandu: Pashupatinath Temple, Boudhanath Stupa, Swayambhunath (Monkey Temple).",
+    "Chitwan: Jungle Safari, Elephant Breeding Centre, Tharu Village Walk.",
+    "Pokhara: Phewa Lake Boating, Davis Fall, Gupteshwor Cave, Sarangkot Sunrise View.",
+    "Nagarkot: Himalayan Sunrise View."
+  ],
+  accommodation: [
+    "Kathmandu: 2 Nights in a 4-star category hotel (e.g., Hotel Mulberry or similar).",
+    "Chitwan: 2 Nights in a jungle resort (e.g., Green Park Resort or similar).",
+    "Pokhara: 2 Nights in a lake-view hotel (e.g., Temple Tree Resort or similar).",
+    "Nagarkot: 1 Night in a Himalayan view resort (e.g., Club Himalaya or similar)."
+  ],
+  meals: [
+    "Daily buffet breakfast at all hotels.",
+    "All meals (Breakfast, Lunch, Dinner) included during the Chitwan stay.",
+    "Welcome dinner with a cultural show in Kathmandu.",
+    "1 bottle of packaged drinking water per person per day during sightseeing."
+  ],
+  inclusionExclusions: {
+    inclusions: [
+      "Accommodation on a twin-sharing basis.",
+      "Meals as specified in the itinerary.",
+      "All transfers and sightseeing by AC vehicle.",
+      "English-speaking guide during sightseeing.",
+      "Jungle Safari activities in Chitwan."
+    ],
+    exclusions: [
+      "Airfare (International & Domestic).",
+      "Nepal Entry Visa fees.",
+      "Monument entrance fees.",
+      "Travel insurance.",
+      "Personal expenses (laundry, telephone, tips, etc.)."
+    ]
+  }
 };
 
 // Sub-component for Traveller Details Counter
@@ -78,9 +117,9 @@ const GuestCounter = ({ label, subLabel, value, onIncrement, onDecrement, minVal
   </div>
 );
 
-const PackageDetailsPage = () => {
+const Kathmandu = () => {
   const [openDay, setOpenDay] = useState(1);
-  const [activeMainTab, setActiveMainTab] = useState('calculate price'); 
+  const [activeMainTab, setActiveMainTab] = useState('itinerary'); 
   const [activeSubTab, setActiveSubTab] = useState('highlights'); 
 
   // --- CALCULATE PRICE STATE ---
@@ -273,13 +312,13 @@ const PackageDetailsPage = () => {
                   {['Highlights', 'Transfer', 'Sightseeing', 'Accommodation', 'Meals', 'Inclusion/Exclusions'].map((subTab) => (
                     <button
                       key={subTab}
-                      onClick={() => setActiveSubTab(subTab.toLowerCase())}
+                      onClick={() => setActiveSubTab(subTab.toLowerCase().replace('/', ''))}
                       className={`pb-3 text-sm font-semibold whitespace-nowrap transition-colors relative ${
-                        activeSubTab === subTab.toLowerCase() ? 'text-red-600' : 'text-gray-500 hover:text-gray-800'
+                        activeSubTab === subTab.toLowerCase().replace('/', '') ? 'text-red-600' : 'text-gray-500 hover:text-gray-800'
                       }`}
                     >
                       {subTab}
-                      {activeSubTab === subTab.toLowerCase() && (
+                      {activeSubTab === subTab.toLowerCase().replace('/', '') && (
                         <span className="absolute bottom-[-1px] left-0 w-full h-[2px] bg-red-600"></span>
                       )}
                     </button>
@@ -302,9 +341,86 @@ const PackageDetailsPage = () => {
                   </div>
                 )}
                 
-                {activeSubTab !== 'highlights' && (
-                  <div className="text-gray-500 text-sm py-4 animate-fadeIn">
-                    Details for {activeSubTab} will be updated soon.
+                {activeSubTab === 'transfer' && (
+                  <div className="animate-fadeIn">
+                    <h3 className="text-lg font-bold text-gray-800 mb-4">Transfer Details</h3>
+                    <ul className="space-y-4">
+                      {packageData.transfer.map((item, index) => (
+                        <li key={index} className="flex items-start text-sm text-gray-600 font-medium">
+                          <div className="min-w-[6px] h-[6px] rounded-full bg-red-500 mt-1.5 mr-3"></div>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {activeSubTab === 'sightseeing' && (
+                  <div className="animate-fadeIn">
+                    <h3 className="text-lg font-bold text-gray-800 mb-4">Sightseeing Details</h3>
+                    <ul className="space-y-4">
+                      {packageData.sightseeing.map((item, index) => (
+                        <li key={index} className="flex items-start text-sm text-gray-600 font-medium">
+                          <div className="min-w-[6px] h-[6px] rounded-full bg-red-500 mt-1.5 mr-3"></div>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {activeSubTab === 'accommodation' && (
+                  <div className="animate-fadeIn">
+                    <h3 className="text-lg font-bold text-gray-800 mb-4">Accommodation Details</h3>
+                    <ul className="space-y-4">
+                      {packageData.accommodation.map((item, index) => (
+                        <li key={index} className="flex items-start text-sm text-gray-600 font-medium">
+                          <div className="min-w-[6px] h-[6px] rounded-full bg-red-500 mt-1.5 mr-3"></div>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {activeSubTab === 'meals' && (
+                  <div className="animate-fadeIn">
+                    <h3 className="text-lg font-bold text-gray-800 mb-4">Meals Details</h3>
+                    <ul className="space-y-4">
+                      {packageData.meals.map((item, index) => (
+                        <li key={index} className="flex items-start text-sm text-gray-600 font-medium">
+                          <div className="min-w-[6px] h-[6px] rounded-full bg-red-500 mt-1.5 mr-3"></div>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {activeSubTab === 'inclusionexclusions' && (
+                  <div className="animate-fadeIn grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-lg font-bold text-green-700 mb-4">Inclusions</h3>
+                      <ul className="space-y-4">
+                        {packageData.inclusionExclusions.inclusions.map((item, index) => (
+                          <li key={index} className="flex items-start text-sm text-gray-600 font-medium">
+                            <div className="min-w-[6px] h-[6px] rounded-full bg-green-500 mt-1.5 mr-3"></div>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-red-600 mb-4">Exclusions</h3>
+                      <ul className="space-y-4">
+                        {packageData.inclusionExclusions.exclusions.map((item, index) => (
+                          <li key={index} className="flex items-start text-sm text-gray-600 font-medium">
+                            <div className="min-w-[6px] h-[6px] rounded-full bg-red-500 mt-1.5 mr-3"></div>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 )}
               </div>
@@ -537,4 +653,4 @@ const PackageDetailsPage = () => {
   );
 };
 
-export default PackageDetailsPage;
+export default Kathmandu;
