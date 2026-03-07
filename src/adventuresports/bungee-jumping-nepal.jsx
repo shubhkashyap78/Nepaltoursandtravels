@@ -78,7 +78,7 @@ const BungeeJumpingNepal = () => {
               <div className="lg:col-span-5 order-1">
                  <div className="relative rounded-3xl overflow-hidden shadow-2xl group h-[300px] lg:h-[450px]">
                     <img 
-                      src="src\images\Bungee jumping.jpeg" 
+                      src={Bungeejumping} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                       alt="Bungee Jumping Experience"
                     />

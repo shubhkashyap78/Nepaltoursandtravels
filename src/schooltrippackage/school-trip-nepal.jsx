@@ -329,7 +329,7 @@ const SchoolTripNepal = () => {
                         </div>
                       </div>
                       <button className="bg-orange-500 hover:bg-indigo-950 text-white px-5 py-2.5 rounded-xl font-bold transition-all shadow-lg text-sm flex items-center uppercase tracking-wide">
-                        View Itinerary <ChevronRight size={16} className="ml-1" />
+                        View Details <ChevronRight size={16} className="ml-1" />
                       </button>
                     </div>
                   </div>
