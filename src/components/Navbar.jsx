@@ -368,7 +368,9 @@ const TravelNavbar = () => {
         { name: 'Mountain flight', path: 'mountain-flight-nepal' },
         { name: 'Mountain Helicopter in Nepal', path: 'mountain-helicopter-tour-nepal' },
         { name: 'Bungee jumping', path: 'bungee-jumping-nepal' },
-        { name: 'Trekking in Nepal', path: '/activities/trekking' }
+        { name: 'Trekking in Nepal', path: 'trekking-in-nepal' },
+        { name: 'Hiking in nepal',path: 'hiking-in-nepal'},
+        { name: 'Mountain biking in nepal',path:'mountain-biking-In-Nepal'}
       ] 
     },
     { 
