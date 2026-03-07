@@ -5,7 +5,7 @@ import IndiaNepalallPackages from "./pages/IndiaNepalallPackages"
 import NepalAllPackages from "./nepalpackages/NepalAllPackages"
 import Kathmandu from "./nepalpackages/Kathmandu"
 
-
+import VisaPage from "./pages/VisaPage"
 import AyodhyaPackages from "./pages/AyodhyaPackages"
 import KathmanduTour2N3D from "./pages/KathmanduTour2N3D"
 import KashiTourPackages from "./pages/KashiTourPackages"
@@ -47,6 +47,7 @@ const App=()=>{
       <Route path="indianepalallpackages" element={<IndiaNepalallPackages/>}/>
       <Route path="nepalallpackages" element={<NepalAllPackages/>}/>
       <Route path="package/kathmandu" element={<Kathmandu/>}/>
+      <Route path="visa" element={<VisaPage/>}/>
 
      
 

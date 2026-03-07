@@ -5,19 +5,19 @@ import {
   Camera, Bus, Award, Users 
 } from 'lucide-react';
  import kathmandu from "../images/kathmandu.jpg"
-
+import kathmandubanner from "../images/kathmandubanner.png"
 // --- PURE NEPAL MOCK DATA (SOTC Style Design) ---
 const packageData = {
   title: "Majestic Nepal: Kathmandu",
   rating: 4.5,
   reviews: 1240,
-  duration: "7 Nights 8 Days",
+  duration: "5 Nights 4 Days",
   route: "Kathmandu (2N) → Bhaktapur (1N) → Patan (1N) → Nagarkot (1N)",
   originalPrice: 52000,
   basePriceAdult: 45500,
   basePriceChildWithBed: 35000,
   basePriceChildWithoutBed: 25000,
-  topBannerImage: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=400&q=80", 
+  topBannerImage: kathmandubanner, 
   images: [
     "https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", 
    
@@ -437,9 +437,9 @@ const Kathmandu = () => {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">Departure City <span className="text-red-500">*</span></label>
                     <select className="w-full border border-gray-300 rounded px-3 py-2.5 text-sm text-gray-700 outline-none focus:border-red-400 bg-white">
                       <option>Please Select</option>
-                      <option>New Delhi</option>
-                      <option>Mumbai</option>
-                      <option>Bangalore</option>
+                      <option>Pune </option>
+                      <option>Gorakhpur</option>
+                      <option></option>
                     </select>
                   </div>
                   <div>
